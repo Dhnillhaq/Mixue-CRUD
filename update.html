@@ -7,20 +7,20 @@
 </head>
 <body>
 <nav class="navbar navbar-dark bg-danger">
-    <a href="index.php">
+    <a href="index.html">
         <span class="navbar-brand mb-2 h1">Mixue</span>
     </a>
-    <a href="index.php">
+    <a href="index.html">
         <img src="images/mixue.png" alt="logo" width="50px">
     </a>
         </div>
     </nav>
     <br>
 <div class="container">
-    <?php
+    <?html
 
     //Include file koneksi, untuk koneksikan ke database
-    include "koneksi.php";
+    include "koneksi.html";
 
     //Fungsi untuk mencegah inputan karakter yang tidak sesuai
     function input($data) {
@@ -86,7 +86,7 @@
 
         //Kondisi apakah berhasil atau tidak dalam mengeksekusi query diatas
         if ($hasil) {
-            header("Location:minuman.php");
+            header("Location:minuman.html");
         }
         else {
             echo "<div class='alert alert-danger'> Data Gagal disimpan.</div>";
@@ -99,25 +99,25 @@
     <h2>Update Data</h2>
 
 
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+    <form action="<?html echo htmlspecialchars($_SERVER["html_SELF"]);?>" method="post">
     <div class="form-group">
                 <label>Nama Pesanan</label>
                 <div class="col-sm-20">
                     <select class="form-control" name="nama" id="nama">
                     <option value="">- Menu -</option>
-                        <option value="Peach Earl Grey Tea" <?php if ($nama == "Peach Earl Grey Tea")
+                        <option value="Peach Earl Grey Tea" <?html if ($nama == "Peach Earl Grey Tea")
                             echo "selected" ?>>Peach Earl Grey Tea</option>
-                            <option value="Original Jasmine Tea" <?php if ($nama == "Original Jasmine Tea")
+                            <option value="Original Jasmine Tea" <?html if ($nama == "Original Jasmine Tea")
                             echo "selected" ?>>Original Jasmine Tea</option>
-                            <option value="Original Earl Grey Tea" <?php if ($nama == "Original Earl Grey Tea")
+                            <option value="Original Earl Grey Tea" <?html if ($nama == "Original Earl Grey Tea")
                             echo "selected" ?>>Original Earl Grey Tea</option>
-                            <option value="Pearl Milk Tea" <?php if ($nama == "Pearl Milk Tea")
+                            <option value="Pearl Milk Tea" <?html if ($nama == "Pearl Milk Tea")
                             echo "selected" ?>>Pearl Milk Tea</option>
-                            <option value="Lemon Jasmine Tea" <?php if ($nama == "Lemon Jasmine Tea")
+                            <option value="Lemon Jasmine Tea" <?html if ($nama == "Lemon Jasmine Tea")
                             echo "selected" ?>>Lemon Jasmine Tea</option>
-                            <option value="Oats Milk Tea" <?php if ($nama == "Oats Milk Tea")
+                            <option value="Oats Milk Tea" <?html if ($nama == "Oats Milk Tea")
                             echo "selected" ?>>Oats Milk Tea</option>
-                            <option value="Hawaiian Fruit Tea" <?php if ($nama == "Hawaiian Fruit Tea")
+                            <option value="Hawaiian Fruit Tea" <?html if ($nama == "Hawaiian Fruit Tea")
                             echo "selected" ?>>Hawaiian Fruit Tea</option>
                         </select>
                     </div>
@@ -127,11 +127,11 @@
                 <div class="col-sm-20">
                     <select class="form-control" name="variant" id="variant">
                         <option value="">- variant -</option>
-                        <option value="Dingin" <?php if ($variant == "Dingin")
+                        <option value="Dingin" <?html if ($variant == "Dingin")
                             echo "selected" ?>>Dingin</option>
-                            <option value="Hangat" <?php if ($variant == "Hangat")
+                            <option value="Hangat" <?html if ($variant == "Hangat")
                             echo "selected" ?>>Hangat</option>
-                            <option value="Panas" <?php if ($nama == "Panas")
+                            <option value="Panas" <?html if ($nama == "Panas")
                             echo "selected" ?>>Panas</option>
                         </select>
                     </div>
@@ -145,9 +145,9 @@
                 <div class="col-sm-20">
                     <select class="form-control" name="metode_pembayaran" id="metode_pembayaran">
                         <option value="">- metode_pembayaran -</option>
-                        <option value="Bayar Cash" <?php if ($metode_pembayaran == "Bayar Cash")
+                        <option value="Bayar Cash" <?html if ($metode_pembayaran == "Bayar Cash")
                             echo "selected" ?>>Bayar Cash</option>
-                            <option value="Transfer via KoPay" <?php if ($metode_pembayaran == "Transfer via KoPay")
+                            <option value="Transfer via KoPay" <?html if ($metode_pembayaran == "Transfer via KoPay")
                             echo "selected" ?>>Transfer via KoPay</option>
                         </select>
                     </div>
@@ -155,7 +155,7 @@
                 <button type="submit" name="submit" class="btn btn-primary">Submit</button>
                 </div>
 
-        <input type="hidden" name="id" value="<?php echo $data['id']; ?>" />
+        <input type="hidden" name="id" value="<?html echo $data['id']; ?>" />
 
     </form>
 </div>

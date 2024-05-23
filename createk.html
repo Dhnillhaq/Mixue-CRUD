@@ -6,19 +6,19 @@
 </head>
 <body>
     <nav class="navbar navbar-dark bg-danger">
-        <a href="index.php">
+        <a href="index.html">
             <span class="navbar-brand mb-2 h1">Mixue</span>
         </a>
-        <a href="index.php">
+        <a href="index.html">
             <img src="images/mixue.png" alt="logo" width="50px">
         </a>
         </div>
     </nav>
     <br>
 <div class="container">
-    <?php
+    <?html
     //Include file koneksi, untuk koneksikan ke database
-    include "koneksi.php";
+    include "koneksi.html";
 
     //Fungsi untuk mencegah inputan karakter yang tidak sesuai
     function input($data) {
@@ -45,7 +45,7 @@
 
         //Kondisi apakah berhasil atau tidak dalam mengeksekusi query diatas
         if ($hasil) {
-            header("Location:karyawan.php");
+            header("Location:karyawan.html");
         }
         else {
             echo "<div class='alert alert-danger'> Data Gagal disimpan.</div>";
@@ -57,7 +57,7 @@
     <h2>Input Data</h2>
 
 
-    <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post">
+    <form action="<?html echo $_SERVER["html_SELF"];?>" method="post">
         <div class="form-group">
             <label>Nama:</label>
             <input type="text" name="nama" class="form-control" placeholder="Masukan Nama" required />
@@ -72,9 +72,9 @@
                 <div class="col-sm-20">
                     <select class="form-control" name="kelamin" id="kelamin">
                         <option value="">- Kelamin -</option>
-                        <option value="L" <?php if ($kelamin == "L")
+                        <option value="L" <?html if ($kelamin == "L")
                             echo "selected" ?>>L</option>
-                            <option value="P" <?php if ($kelamin == "P")
+                            <option value="P" <?html if ($kelamin == "P")
                             echo "selected" ?>>P</option>
                         </select>
                     </div>

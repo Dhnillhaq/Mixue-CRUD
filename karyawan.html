@@ -12,10 +12,10 @@
     Data Karyawan Mixue</title>
 <body>
     <nav class="navbar navbar-dark bg-danger">
-    <a href="index.php">
+    <a href="index.html">
         <span class="navbar-brand mb-2 h1">Mixue</span>
     </a>
-    <a href="index.php">
+    <a href="index.html">
         <img src="images/mixue.png" alt="logo" width="50px">
     </a>
         </div>
@@ -23,9 +23,9 @@
 <div class="container">
     <br>
     <h4><center>DAFTAR KARYAWAN</center></h4>
-<?php
+<?html
 
-    include "koneksi.php";
+    include "koneksi.html";
 
     //Cek apakah ada kiriman form dari method post
     if (isset($_GET['id_karyawan'])) {
@@ -36,7 +36,7 @@
 
         //Kondisi apakah berhasil atau tidak
             if ($hasil) {
-                header("Location:karyawan.php");
+                header("Location:karyawan.html");
 
             }
             else {
@@ -63,8 +63,8 @@
         </tr>
         </thead>
 
-        <?php
-        include "koneksi.php";
+        <?html
+        include "koneksi.html";
         $sql="select * from karyawan order by id_karyawan asc";
 
         $hasil=mysqli_query($kon,$sql);
@@ -75,24 +75,24 @@
             ?>
             <tbody>
             <tr>
-                <td><?php echo '00', $no;?></td>
-                <td><?php echo $data["nama"]; ?></td>
-                <td><?php echo $data["no_hp"];   ?></td>
-                <td><?php echo $data["kelamin"];   ?></td>
-                <td><?php echo $data["alamat"];   ?></td>
+                <td><?html echo '00', $no;?></td>
+                <td><?html echo $data["nama"]; ?></td>
+                <td><?html echo $data["no_hp"];   ?></td>
+                <td><?html echo $data["kelamin"];   ?></td>
+                <td><?html echo $data["alamat"];   ?></td>
                 <td>
-                    <a href="updatek.php?id_karyawan=<?php echo htmlspecialchars($data['id_karyawan']); ?>" class="btn btn-warning" role="button">Update</a>
-                    <a href="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>?id_karyawan=<?php echo $data['id_karyawan']; ?>" class="btn btn-danger" role="button">Delete</a>
+                    <a href="updatek.html?id_karyawan=<?html echo htmlspecialchars($data['id_karyawan']); ?>" class="btn btn-warning" role="button">Update</a>
+                    <a href="<?html echo htmlspecialchars($_SERVER["PHP_SELF"]);?>?id_karyawan=<?html echo $data['id_karyawan']; ?>" class="btn btn-danger" role="button">Delete</a>
                     
                 </td>
             </tr>
             </tbody>
-            <?php
+            <?html
         }
         ?>
     </table>
-    <a href="createk.php" class="btn btn-primary" role="button">Tambah Data</a>
-    <a href="index.php" class="btn btn-dark" role="button">Balik Pilih Menu</a>
+    <a href="createk.html" class="btn btn-primary" role="button">Tambah Data</a>
+    <a href="index.html" class="btn btn-dark" role="button">Balik Pilih Menu</a>
     
 </div>
 </body>

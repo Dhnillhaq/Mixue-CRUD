@@ -12,10 +12,10 @@
     Data Pesanan Mixue</title>
 <body>
     <nav class="navbar navbar-dark bg-danger">
-    <a href="index.php">
+    <a href="index.html">
         <span class="navbar-brand mb-2 h1">Mixue</span>
     </a>
-    <a href="index.php">
+    <a href="index.html">
         <img src="images/mixue.png" alt="logo" width="50px">
     </a>
         </div>
@@ -23,9 +23,9 @@
 <div class="container">
     <br>
     <h4><center>DAFTAR PESANAN</center></h4>
-<?php
+<?html
 
-    include "koneksi.php";
+    include "koneksi.html";
 
     //Cek apakah ada kiriman form dari method post
     if (isset($_GET['id'])) {
@@ -36,7 +36,7 @@
 
         //Kondisi apakah berhasil atau tidak
             if ($hasil) {
-                header("Location:minuman.php");
+                header("Location:minuman.html");
 
             }
             else {
@@ -115,8 +115,8 @@
         </tr>
         </thead>
 
-        <?php
-        include "koneksi.php";
+        <?html
+        include "koneksi.html";
         $sql="select * from pesanan order by id asc";
 
         $hasil=mysqli_query($kon,$sql);
@@ -127,26 +127,26 @@
             ?>
             <tbody>
             <tr>
-                <td><?php echo $no;?></td>
-                <td><?php echo $data["nama"]; ?></td>
-                <td><?php echo $data["harga_satuan"];   ?></td>
-                <td><?php echo $data["variant"];   ?></td>
-                <td><?php echo $data["kuantitas"];   ?></td>
-                <td><?php echo $data["metode_pembayaran"];   ?></td>
-                <td><?php echo $data["subtotal"];   ?></td>
+                <td><?html echo $no;?></td>
+                <td><?html echo $data["nama"]; ?></td>
+                <td><?html echo $data["harga_satuan"];   ?></td>
+                <td><?html echo $data["variant"];   ?></td>
+                <td><?html echo $data["kuantitas"];   ?></td>
+                <td><?html echo $data["metode_pembayaran"];   ?></td>
+                <td><?html echo $data["subtotal"];   ?></td>
                 <td>
-                    <a href="update.php?id=<?php echo htmlspecialchars($data['id']); ?>" class="btn btn-warning" role="button">Update</a>
-                    <a href="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>?id=<?php echo $data['id']; ?>" class="btn btn-danger" role="button">Delete</a>
+                    <a href="update.html?id=<?html echo htmlspecialchars($data['id']); ?>" class="btn btn-warning" role="button">Update</a>
+                    <a href="<?html echo htmlspecialchars($_SERVER["html_SELF"]);?>?id=<?html echo $data['id']; ?>" class="btn btn-danger" role="button">Delete</a>
                 </td>
             </tr>
             </tbody>
-            <?php
+            <?html
         }
         ?>
     </table>
-    <a href="create.php" class="btn btn-primary" role="button">Tambah Data</a>
-    <a href="index.php" class="btn btn-dark" role="button">Balik Pilih Menu</a>
-    <a href="nota.php" class="btn btn-secondary" role="buttom">Cetak Nota</a>
+    <a href="create.html" class="btn btn-primary" role="button">Tambah Data</a>
+    <a href="index.html" class="btn btn-dark" role="button">Balik Pilih Menu</a>
+    <a href="nota.html" class="btn btn-secondary" role="buttom">Cetak Nota</a>
 </div>
 </body>
 </html>

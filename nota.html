@@ -1,5 +1,5 @@
-<?php
-include "koneksi.php";
+<?html
+include "koneksi.html";
 
 $sql = "SELECT * FROM pesanan";
 $result = mysqli_query($kon, $sql);
@@ -86,7 +86,7 @@ $nomorNota = acakNomorNota(15);
     </style>
 </head>
 <body>
-    <h3>Nomor Nota: <?php echo $nomorNota; ?></h3>
+    <h3>Nomor Nota: <?html echo $nomorNota; ?></h3>
 </body>
         <table>
             <thead>
@@ -99,7 +99,7 @@ $nomorNota = acakNomorNota(15);
                 </tr>
             </thead>
             <tbody>
-            <?php
+            <?html
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<tr>";
                     echo "<td>" . $row['nama'] . "</td>";
@@ -115,13 +115,13 @@ $nomorNota = acakNomorNota(15);
             </tbody>
         </table>
         <div class="total">
-            <strong>Total Pembayaran:</strong> Rp <?php echo number_format($total_pembayaran, 0, ',', '.'); ?>
+            <strong>Total Pembayaran:</strong> Rp <?html echo number_format($total_pembayaran, 0, ',', '.'); ?>
         </div>
         <div>
             <p>Terima kasih atas pembelian Anda!</p>
         </div>
         <div class="">
-            <a href="minuman.php" class="btn btn-primary">Kembali</a>
+            <a href="minuman.html" class="btn btn-primary">Kembali</a>
         </div>
     </div>
 
