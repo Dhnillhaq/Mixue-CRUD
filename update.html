@@ -17,89 +17,18 @@
     </nav>
     <br>
 <div class="container">
-    <?html
-
-    //Include file koneksi, untuk koneksikan ke database
-    include "koneksi.html";
-
-    //Fungsi untuk mencegah inputan karakter yang tidak sesuai
-    function input($data) {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
-
-    $nama="";
-    $variant="";
-    $metode_pembayaran="";
-    //Cek apakah ada nilai yang dikirim menggunakan methos GET dengan nama id
-    if (isset($_GET['id'])) {
-        $id=input($_GET["id"]);
-
-        $sql="select * from pesanan where id=$id";
-        $hasil=mysqli_query($kon,$sql);
-        $data = mysqli_fetch_assoc($hasil);
-
-
-    }
-
-    //Cek apakah ada kiriman form dari method post
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-        $id=htmlspecialchars($_POST["id"]);
-        $nama=input($_POST["nama"]);
-        $harga_satuan = 0; // Nilai default atau nilai lain yang sesuai dengan kebutuhan Anda
-        $sql_menu = "SELECT harga FROM menu WHERE nama = '$nama'";
-        $result_menu = mysqli_query($kon, $sql_menu);
     
-        if ($result_menu) {
-            if(mysqli_num_rows($result_menu) > 0) {
-                $row_menu = mysqli_fetch_assoc($result_menu);
-                $harga_satuan = $row_menu['harga'];
-            } else {
-                // Handle jika tidak ada data yang ditemukan
-                $error = "Menu tidak ditemukan atau harga tidak tersedia.";
-            }
-        } else {
-            // Handle jika query gagal
-            $error = "Gagal mengambil data harga dari menu.";
+            
 
-        }
-        $variant=input($_POST["variant"]);
-        $kuantitas=input($_POST["kuantitas"]);
-        $metode_pembayaran=input($_POST["metode_pembayaran"]);
-        $subtotal = intval($harga_satuan) * intval($kuantitas);
+    
 
-        //Query update data pada tabel anggota
-        $sql="UPDATE pesanan SET
-			nama='$nama',
-            harga_satuan='$harga_satuan',
-			variant='$variant',
-			kuantitas='$kuantitas',
-			metode_pembayaran='$metode_pembayaran',
-            subtotal='$subtotal'
-			where id=$id";
+    
 
-        //Mengeksekusi atau menjalankan query diatas
-        $hasil=mysqli_query($kon,$sql);
-
-        //Kondisi apakah berhasil atau tidak dalam mengeksekusi query diatas
-        if ($hasil) {
-            header("Location:minuman.html");
-        }
-        else {
-            echo "<div class='alert alert-danger'> Data Gagal disimpan.</div>";
-
-        }
-
-    }
-
-    ?>
+    
     <h2>Update Data</h2>
 
 
-    <form action="<?html echo htmlspecialchars($_SERVER["html_SELF"]);?>" method="post">
+    <form action="<?html echo htmlspecialchars($_SERVER["html_SELF"]);?>
     <div class="form-group">
                 <label>Nama Pesanan</label>
                 <div class="col-sm-20">

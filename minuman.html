@@ -23,28 +23,8 @@
 <div class="container">
     <br>
     <h4><center>DAFTAR PESANAN</center></h4>
-<?html
+                
 
-    include "koneksi.html";
-
-    //Cek apakah ada kiriman form dari method post
-    if (isset($_GET['id'])) {
-        $id=htmlspecialchars($_GET["id"]);
-
-        $sql="delete from pesanan where id='$id' ";
-        $hasil=mysqli_query($kon,$sql);
-
-        //Kondisi apakah berhasil atau tidak
-            if ($hasil) {
-                header("Location:minuman.html");
-
-            }
-            else {
-                echo "<div class='alert alert-danger'> Data Gagal dihapus.</div>";
-
-            }
-        }
-?>
 <body>
     <div class="mx-auto">
         <!-- Menu -->
@@ -115,34 +95,38 @@
         </tr>
         </thead>
 
-        <?html
-        include "koneksi.html";
-        $sql="select * from pesanan order by id asc";
-
-        $hasil=mysqli_query($kon,$sql);
-        $no=0;
-        while ($data = mysqli_fetch_array($hasil)) {
-            $no++;
-
-            ?>
+        
             <tbody>
             <tr>
-                <td><?html echo $no;?></td>
-                <td><?html echo $data["nama"]; ?></td>
-                <td><?html echo $data["harga_satuan"];   ?></td>
-                <td><?html echo $data["variant"];   ?></td>
-                <td><?html echo $data["kuantitas"];   ?></td>
-                <td><?html echo $data["metode_pembayaran"];   ?></td>
-                <td><?html echo $data["subtotal"];   ?></td>
+                <td>1</td>
+                <td>Lemon Jasmine Tea</td>
+                <td>Rp. 16.000</td>
+                <td>Panas</td>
+                <td><center>x2</center></td>
+                <td>Transfer via KoPay</td>
+                <td>Rp. 32.000</td>
                 <td>
                     <a href="update.html?id=<?html echo htmlspecialchars($data['id']); ?>" class="btn btn-warning" role="button">Update</a>
-                    <a href="<?html echo htmlspecialchars($_SERVER["html_SELF"]);?>?id=<?html echo $data['id']; ?>" class="btn btn-danger" role="button">Delete</a>
+                    <a class="btn btn-danger" role="button">Delete</a>
                 </td>
             </tr>
             </tbody>
-            <?html
-        }
-        ?>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>Oats Milk Tea</td>
+                <td>Rp. 22.000</td>
+                <td>Dingin</td>
+                <td><center>x1</center></td>
+                <td>Transfer via KoPay</td>
+                <td>Rp. 22.000</td>
+                <td>
+                    <a href="update.html?id=<?html echo htmlspecialchars($data['id']); ?>" class="btn btn-warning" role="button">Update</a>
+                    <a class="btn btn-danger" role="button">Delete</a>
+                </td>
+            </tr>
+            </tbody>
+            
     </table>
     <a href="create.html" class="btn btn-primary" role="button">Tambah Data</a>
     <a href="index.html" class="btn btn-dark" role="button">Balik Pilih Menu</a>

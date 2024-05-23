@@ -1,26 +1,3 @@
-<?html
-include "koneksi.html";
-
-$sql = "SELECT * FROM pesanan";
-$result = mysqli_query($kon, $sql);
-
-
-$total_pembayaran = 0;
-
-function acakNomorNota($panjang = 15) {
-    $karakter = '0123456789'; // Karakter yang akan digunakan untuk mengacak
-    $panjangKarakter = strlen($karakter);
-    $acak = '';
-    for ($i = 0; $i < $panjang; $i++) {
-        $acak .= $karakter[rand(0, $panjangKarakter - 1)];
-    }
-    return $acak;
-}
-
-// Panggil fungsi acakNomorNota() untuk mendapatkan Nomor Nota yang diacak
-$nomorNota = acakNomorNota(15);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -86,7 +63,7 @@ $nomorNota = acakNomorNota(15);
     </style>
 </head>
 <body>
-    <h3>Nomor Nota: <?html echo $nomorNota; ?></h3>
+    <h3>Nomor Nota: #0003431</h3>
 </body>
         <table>
             <thead>
@@ -97,25 +74,27 @@ $nomorNota = acakNomorNota(15);
                     <th>Kuantitas</th>
                     <th>Subtotal</th>
                 </tr>
+                <tr>
+                    <td>Lemon Jasmine Tea </td>
+                    <td>Rp. 16.000</td>
+                    <td>Panas</td>
+                    <td><center>2</center></td>
+                    <td>Rp. 32.000</td>
+                </tr>
+                <tr>
+                    <td>Oats Milk Tea</td>
+                    <td>Rp. 22.000</td>
+                    <td>Dingin</td>
+                    <td><center>1</center></td>
+                    <td>Rp. 22.000</td>
+                </tr>
             </thead>
             <tbody>
-            <?html
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo "<tr>";
-                    echo "<td>" . $row['nama'] . "</td>";
-                    echo "<td>Rp " . number_format($row['kuantitas'], 0, ',', '.') . "</td>";
-                    echo "<td>" . $row['variant'] . "</td>";
-                    echo "<td>" . $row['kuantitas'] . "</td>";
-                    echo "<td>Rp " . number_format($row['subtotal'], 0, ',', '.') . "</td>";
-                    echo "</tr>";
-
-                    $total_pembayaran += $row['subtotal'];
-                }
-                ?>
+            
             </tbody>
         </table>
         <div class="total">
-            <strong>Total Pembayaran:</strong> Rp <?html echo number_format($total_pembayaran, 0, ',', '.'); ?>
+            <strong>Total Pembayaran: Rp. 54.000</strong> 
         </div>
         <div>
             <p>Terima kasih atas pembelian Anda!</p>

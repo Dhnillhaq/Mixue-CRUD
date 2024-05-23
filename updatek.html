@@ -17,67 +17,11 @@
     </nav>
     <br>
 <div class="container">
-    <?html
 
-    //Include file koneksi, untuk koneksikan ke database
-    include "koneksi.html";
-
-    //Fungsi untuk mencegah inputan karakter yang tidak sesuai
-    function input($data) {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
-    $kelamin="";
-    //Cek apakah ada nilai yang dikirim menggunakan methos GET dengan nama id_peserta
-    if (isset($_GET['id_karyawan'])) {
-        $id_karyawan=input($_GET["id_karyawan"]);
-
-        $sql="select * from karyawan where id_karyawan=$id_karyawan";
-        $hasil=mysqli_query($kon,$sql);
-        $data = mysqli_fetch_assoc($hasil);
-
-
-    }
-
-    //Cek apakah ada kiriman form dari method post
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-        $id_karyawan=htmlspecialchars($_POST["id_karyawan"]);
-        $nama=input($_POST["nama"]);
-        $no_hp=input($_POST["no_hp"]);
-        $jurusan=input($_POST["jurusan"]);
-        $kelamin=input($_POST["kelamin"]);
-        $alamat=input($_POST["alamat"]);
-
-        //Query update data pada tabel anggota
-        $sql="update karyawan set
-			nama='$nama',
-			no_hp='$no_hp',
-			kelamin='$kelamin',
-			alamat='$alamat'
-			where id_karyawan=$id_karyawan";
-
-        //Mengeksekusi atau menjalankan query diatas
-        $hasil=mysqli_query($kon,$sql);
-
-        //Kondisi apakah berhasil atau tidak dalam mengeksekusi query diatas
-        if ($hasil) {
-            header("Location:karyawan.html");
-        }
-        else {
-            echo "<div class='alert alert-danger'> Data Gagal disimpan.</div>";
-
-        }
-
-    }
-
-    ?>
     <h2>Update Data</h2>
 
 
-    <form action="<?html echo htmlspecialchars($_SERVER["html_SELF"]);?>" method="post">
+    <form>
         <div class="form-group">
             <label>Nama:</label>
             <input type="text" name="nama" class="form-control" placeholder="Masukan Nama" required />
